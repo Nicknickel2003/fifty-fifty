@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Geburtstagswochenende 🎉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #333;
+    }
+
+    .login, .content {
+      max-width: 500px;
+      margin: 80px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #667eea;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .day {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .time {
+      font-weight: bold;
+      width: 90px;
+      display: inline-block;
+    }
+
+    .highlight {
+      color: #d35400;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="login" id="loginBox">
+  <h1>🔐 Zugang</h1>
+  <input type="password" id="password" placeholder="Passwort eingeben">
+  <button onclick="checkLogin()">Einloggen</button>
+  <div class="error" id="error"></div>
+</div>
+
+<div class="content" id="content" style="display:none;">
+
+  <h1>🎉 Geburtstagswochenende</h1>
+
+  <div class="day">
+    <h2>Donnerstag, 30.04.2026</h2>
+    <p><span class="time">bis 16:00</span> Anreise</p>
+    <p><span class="time">—</span> Einchecken</p>
+    <p><span class="time">18:00</span> <span class="highlight">Treffpunkt Strand</span></p>
+  </div>
+
+  <div class="day">
+    <h2>Freitag, 01.05.2026</h2>
+    <p><span class="time">bis 12:00</span> Anreise</p>
+    <p><span class="time">—</span> Einchecken</p>
+    <p><span class="time">13:00</span> <span class="highlight">Grillplatz – große Begrüßung</span></p>
+    <p><span class="time">14:00</span> Sektempfang</p>
+    <p><span class="time">15:00</span> Kaffee und Kuchen</p>
+    <p><span class="time">17:00</span> Grillen</p>
+  </div>
+
+  <div class="day">
+    <h2>Samstag, 02.05.2026</h2>
+    <p><span class="time">bis 09:00</span> Frühstück</p>
+    <p><span class="time">10:00</span> Wanderung Warnemünde</p>
+    <p><span class="time">13:00</span> <span class="highlight">Geburtstag & Sekt</span></p>
+    <p><span class="time">14:00</span> Dampferrundfahrt</p>
+    <p><span class="time">16:00</span> Kaffee und Kuchen</p>
+    <p><span class="time">17:00</span> Abendessen</p>
+    <p><span class="time">19:00</span> Zusammensitzen 🍻</p>
+  </div>
+
+</div>
+
+<script>
+  const correctPassword = "party2026";
+
+  function checkLogin() {
+    const input = document.getElementById("password").value;
+
+    if (input === correctPassword) {
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      localStorage.setItem("loggedIn", "true");
+    } else {
+      document.getElementById("error").innerText = "Falsches Passwort!";
+    }
+  }
+
+  window.onload = function() {
+    if (localStorage.getItem("loggedIn") === "true") {
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>
