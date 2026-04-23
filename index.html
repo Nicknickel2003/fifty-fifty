@@ -13,7 +13,7 @@
       color: #333;
     }
 
-    .login, .content {
+    .content {
       max-width: 500px;
       margin: 80px auto;
       background: white;
@@ -24,33 +24,6 @@
 
     h1 {
       text-align: center;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 8px;
-      background: #667eea;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .error {
-      color: red;
-      text-align: center;
-      margin-top: 10px;
     }
 
     .day {
@@ -75,14 +48,7 @@
 
 <body>
 
- <div class="login" id="loginBox">
-  <h1>🔐 Zugang</h1>
-  <input type="password" id="password" placeholder="Passwort eingeben">
-  <button onclick="checkLogin()">Einloggen</button>
-  <div class="error" id="error"></div>
- </div>
-
-<div class="content" id="content" style="display:none;">
+<div class="content">
 
   <h1>🎉 Geburtstagswochenende</h1>
 
@@ -117,29 +83,6 @@
   </div>
 
 </div>
-
-<script>
-  const correctPassword = "cori2026";
-
-  function checkLogin() {
-    const input = document.getElementById("password").value;
-
-    if (input === correctPassword) {
-      document.getElementById("loginBox").style.display = "none";
-      document.getElementById("content").style.display = "block";
-      localStorage.setItem("loggedIn", "true");
-    } else {
-      document.getElementById("error").innerText = "Falsches Passwort!";
-    }
-  }
-
-  window.onload = function() {
-    if (localStorage.getItem("loggedIn") === "true") {
-      document.getElementById("loginBox").style.display = "none";
-      document.getElementById("content").style.display = "block";
-    }
-  }
-</script>
 
 </body>
 </html>
